@@ -1,21 +1,21 @@
 import { View, Pressable, Text } from 'react-native';
-import { button } from './style';
+import { stylesButton } from './style';
 
 export default function Button({ label, theme, onPress }) {
   if (theme === 'primary') {
     return (
-      <View style={[button.buttonContainer]}>
-        <Pressable style={[button.button, { backgroundColor: '#fff' }]} onPress={onPress}>
-          <Text style={[button.buttonLabel, { color: '#25292e' }]}>{label}</Text>
+      <View style={[stylesButton.buttonContainer]}>
+        <Pressable style={[stylesButton.button, { backgroundColor: '#fff' }]} onPress={onPress}>
+          <Text style={[stylesButton.buttonLabel, { color: '#25292e' }]}>{label}</Text>
         </Pressable>
       </View>
     );
   }
 
   return (
-    <View style={button.buttonContainer}>
-      <Pressable style={button.button} onPress={onPress}>
-        <Text style={button.buttonLabel}>{label}</Text>
+    <View style={stylesButton.buttonContainer}>
+      <Pressable style={stylesButton.button} onPress={onPress}>
+        <Text style={stylesButton.buttonLabel}>{label}</Text>
       </Pressable>
     </View>
   );

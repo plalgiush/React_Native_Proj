@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const button = StyleSheet.create({
+export const stylesButton = StyleSheet.create({
   buttonContainer: {
     width: 320,
     height: 60,

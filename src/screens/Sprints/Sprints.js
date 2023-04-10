@@ -1,5 +1,5 @@
-import { View } from 'react-native';
-import axios from './src/configs/axios';
+import { View, Text } from 'react-native';
+import axios from '../../../src/configs/axios.js';
 import Button from '../../components/Button/Button';
 import { stylesSprints } from './styles';
 
@@ -31,7 +31,7 @@ const Sprints = () => {
   // };
 
   return (
-    <View>
+    <View style={stylesSprints.container}>
       {/* <SafeAreaView style={stylesSprints.containerr}>
         <FlatList
           data={data}
@@ -42,6 +42,23 @@ const Sprints = () => {
           )}
         />
       </SafeAreaView> */}
+
+      <View>
+        <Text>Старт: 03.01.23</Text>
+        <Text>Финиш: 06.03.23</Text>
+      </View>
+      <View>
+        <Text>Цель 1 (развитие)</Text>
+      </View>
+      <View>
+        <Text>Цель 2 (карьера)</Text>
+      </View>
+      <View>
+        <Text>Цель 3 (отношения)</Text>
+      </View>
+      <View>
+        <Text>Награда за успех: </Text>
+      </View>
       <Button theme="primary" label="Подписать" />
     </View>
   );
