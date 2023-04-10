@@ -15,13 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.plalgiush.firstproject"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.plalgiush.firstproject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,6 +39,11 @@
     },
     "updates": {
       "url": "https://u.expo.dev/7ed78583-c817-4bf8-bad7-9235f61d31d8"
+    },
+    "paths": {
+      "@config/*": [
+        "./src/configs/axios.js"
+      ]
     }
   }
 }
