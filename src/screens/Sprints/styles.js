@@ -6,35 +6,51 @@ export const stylesSprints = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+  timeFrame: {
+    alignItems: 'start',
+    maxWidth: 320,
+    width: '100%',
   },
-  title: {
-    fontSize: 32,
+  timeFrameTitle: {
+    width: '100%',
+    marginTop: 20,
+    color: '#fff',
+    fontSize: 16,
+    textTransform: 'uppercase',
   },
-  post: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'white',
-    paddingVertical: 20,
-    paddingRight: 20,
-    marginLeft: 20,
+  purposes: {
+    alignItems: 'start',
+    maxWidth: 320,
+    width: '100%',
+    marginTop: 50,
   },
-  title: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'white',
+  purpose: {
+    marginTop: 25,
+    marginBottom: 25,
   },
-  body: {
-    marginTop: 10,
-    fontSize: 14,
-    color: '#F8F8F8',
+  purposeTitle: {
+    color: '#fff',
+    fontSize: 18,
+    textTransform: 'uppercase',
   },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  purposeText: {
+    marginTop: 15,
+    color: '#fff',
+    fontSize: 16,
+  },
+  reward: {
+    maxWidth: 320,
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  rewardTitle: {
+    color: '#fff',
+    fontSize: 18,
+    textTransform: 'uppercase',
+  },
+  rewardText: {
+    marginTop: 15,
+    color: '#fff',
+    fontSize: 16,
   },
 });

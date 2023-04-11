@@ -14,7 +14,7 @@ export const stylesSignature = StyleSheet.create({
     textTransform: 'uppercase',
   },
   image: {
-    width: '100%',
+    width: 360,
     height: 145,
     borderRadius: 18,
   },

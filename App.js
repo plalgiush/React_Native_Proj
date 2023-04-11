@@ -1,14 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
-import Signature from './src/screens/Signature/Signature';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { MyTheme, stylesMainContainer } from './src/theme';
+import { pages } from './src/mockData';
 
 export default function App() {
+  const { Screen, Navigator } = createNativeStackNavigator();
+
   return (
     <View style={stylesMainContainer.container}>
-      {/* <Navigation /> */}
-      <Signature />
-      <StatusBar style="auto" />
+      <NavigationContainer theme={MyTheme}>
+        <Navigator>
+          {pages.map(
+            ({ name, component, id }) =>
+              component && <Screen key={id} name={name} component={component} />
+          )}
+        </Navigator>
+        <StatusBar style="auto" />
+      </NavigationContainer>
     </View>
   );
 }

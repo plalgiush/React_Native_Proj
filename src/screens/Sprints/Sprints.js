@@ -3,7 +3,7 @@ import axios from '../../../src/configs/axios.js';
 import Button from '../../components/Button/Button';
 import { stylesSprints } from './styles';
 
-const Sprints = () => {
+const Sprints = ({ navigation }) => {
   // const [data, setData] = useState([]);
   // const baseUrl = 'http://localhost';
 
@@ -43,23 +43,31 @@ const Sprints = () => {
         />
       </SafeAreaView> */}
 
-      <View>
-        <Text>Старт: 03.01.23</Text>
-        <Text>Финиш: 06.03.23</Text>
+      <View style={stylesSprints.timeFrame}>
+        <Text style={[stylesSprints.timeFrameTitle, { display: 'flex', justifyContent:'space-between' }]}>
+          Старт: <Text style={stylesSprints.timeFrameDate}>03.01.23</Text>
+        </Text>
+        <Text style={[stylesSprints.timeFrameTitle, { display: 'flex', justifyContent:'space-between' }]}>
+          Финиш: <Text style={stylesSprints.timeFrameDate}>06.01.23</Text>
+        </Text>
       </View>
-      <View>
-        <Text>Цель 1 (развитие)</Text>
+      <View style={stylesSprints.purposes}>
+        <View style={stylesSprints.purpose}>
+          <Text style={stylesSprints.purposeTitle}>Цель 1 (развитие)</Text>
+          <Text style={stylesSprints.purposeText}>Узнать о том, как продавать</Text>
+        </View>
+        <View style={stylesSprints.purpose}>
+          <Text style={stylesSprints.purposeTitle}>Цель 2 (карьера)</Text>
+        </View>
+        <View style={stylesSprints.purpose}>
+          <Text style={stylesSprints.purposeTitle}>Цель 3 (отношения)</Text>
+        </View>
       </View>
-      <View>
-        <Text>Цель 2 (карьера)</Text>
+      <View style={stylesSprints.reward}>
+        <Text style={stylesSprints.rewardTitle}>Награда за успех: </Text>
+        <Text style={stylesSprints.rewardText}>Буду есть мороженое целый год, когда захочу</Text>
       </View>
-      <View>
-        <Text>Цель 3 (отношения)</Text>
-      </View>
-      <View>
-        <Text>Награда за успех: </Text>
-      </View>
-      <Button theme="primary" label="Подписать" />
+      <Button theme="primary" label="Подписать" onPress={() => navigation.navigate('Signature')} />
     </View>
   );
 };

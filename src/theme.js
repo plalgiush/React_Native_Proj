@@ -5,7 +5,7 @@ export const MyTheme = {
 	...DefaultTheme,
 	colors: {
 		...DefaultTheme.colors,
-		background: '#25292e'
+		background: '#25292e',
 	},
 };
 
@@ -13,6 +13,5 @@ export const stylesMainContainer = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#25292e',
-        alignItems: 'center',
 	},
 });
