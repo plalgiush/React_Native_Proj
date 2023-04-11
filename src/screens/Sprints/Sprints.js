@@ -1,5 +1,6 @@
 import { View, Text } from 'react-native';
 import axios from '../../../src/configs/axios.js';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Button from '../../components/Button/Button';
 import { stylesSprints } from './styles';
 
@@ -44,23 +45,40 @@ const Sprints = ({ navigation }) => {
       </SafeAreaView> */}
 
       <View style={stylesSprints.timeFrame}>
-        <Text style={[stylesSprints.timeFrameTitle, { display: 'flex', justifyContent:'space-between' }]}>
+        <Text
+          style={[
+            stylesSprints.timeFrameTitle,
+            { display: 'flex', justifyContent: 'space-between' },
+          ]}>
           Старт: <Text style={stylesSprints.timeFrameDate}>03.01.23</Text>
         </Text>
-        <Text style={[stylesSprints.timeFrameTitle, { display: 'flex', justifyContent:'space-between' }]}>
+        <Text
+          style={[
+            stylesSprints.timeFrameTitle,
+            { display: 'flex', justifyContent: 'space-between' },
+          ]}>
           Финиш: <Text style={stylesSprints.timeFrameDate}>06.01.23</Text>
         </Text>
       </View>
       <View style={stylesSprints.purposes}>
         <View style={stylesSprints.purpose}>
-          <Text style={stylesSprints.purposeTitle}>Цель 1 (развитие)</Text>
-          <Text style={stylesSprints.purposeText}>Узнать о том, как продавать</Text>
+          <View>
+            <Text style={stylesSprints.purposeTitle}>Цель 1 (развитие)</Text>
+            <Text style={stylesSprints.purposeText}>Узнать о том, как продавать</Text>
+          </View>
+          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
         </View>
         <View style={stylesSprints.purpose}>
-          <Text style={stylesSprints.purposeTitle}>Цель 2 (карьера)</Text>
+          <View>
+            <Text style={stylesSprints.purposeTitle}>Цель 2 (карьера)</Text>
+          </View>
+          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
         </View>
         <View style={stylesSprints.purpose}>
-          <Text style={stylesSprints.purposeTitle}>Цель 3 (отношения)</Text>
+          <View>
+            <Text style={stylesSprints.purposeTitle}>Цель 3 (отношения)</Text>
+          </View>
+          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
         </View>
       </View>
       <View style={stylesSprints.reward}>

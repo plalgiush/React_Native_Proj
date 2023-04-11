@@ -25,6 +25,11 @@ export const stylesSprints = StyleSheet.create({
     marginTop: 50,
   },
   purpose: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
     marginTop: 25,
     marginBottom: 25,
   },
@@ -37,6 +42,9 @@ export const stylesSprints = StyleSheet.create({
     marginTop: 15,
     color: '#fff',
     fontSize: 16,
+  },
+  purposeIcon: {
+    paddingRight: 8,
   },
   reward: {
     maxWidth: 320,
