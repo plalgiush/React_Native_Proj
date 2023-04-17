@@ -1,93 +1,130 @@
-import { View, Text } from 'react-native';
+import { View, Text, TextInput, SafeAreaView } from 'react-native';
 import axios from '../../../src/configs/axios.js';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input.js';
 import { stylesSprints } from './styles';
+import { useEffect, useState } from 'react';
 
 const Sprints = ({ navigation }) => {
   // const [data, setData] = useState([]);
-  // const baseUrl = 'http://localhost';
+  // const baseUrl = 'https://stage.day.shellpea.com/api/v1/register';
 
-  // const getPost = async () => {
-  //   const url = `${baseUrl}/api/v1/sprints`;
+  const [sprints, setSprints] = useState([]);
+  const [newSprint, setNewSprint] = useState('');
 
-  //   try {
-  //     const response = await axios.get(url);
-  //     console.log(response);
-  //     if (response.status === 200) {
-  //       console.log(response.data);
-  //       setData(response.data);
-  //       return;
-  //     } else {
-  //       throw new Error('Failed to fetch users');
+  // useEffect(() => {
+  //   // declare the async data fetching function
+  //   const fetchData = async () => {
+  //     const url = `${baseUrl}`;
+
+  //     try {
+  //       const response = await axios.get(url);
+  //       console.log(response);
+  //       if (response.status === 200) {
+  //         console.log(response.data);
+  //         setData(response.data);
+  //         return;
+  //       } else {
+  //         throw new Error('Failed to fetch users');
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //       if (axios.isCancel(error)) {
+  //         console.log('Data fetching cancelled');
+  //       } else {
+  //         setIsLoading(false);
+  //       }
   //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     if (axios.isCancel(error)) {
-  //       console.log('Data fetching cancelled');
-  //     } else {
-  //       setIsLoading(false);
-  //     }
-  //   }
-  // };
+  //   };
+
+  //   // call the function
+  //   fetchData()
+  //     // make sure to catch any error
+  //     .catch(console.error);
+  // }, []);
+
+  function addSprint() {
+    setSprints([...sprints, { id: Date.now(), title: newSprint, date: Date.now() }]);
+    setNewSprint('');
+  }
+
+  function deleteSprint(id) {
+    setSprints(sprints.filter((item) => item.id !== id));
+  }
 
   return (
-    <View style={stylesSprints.container}>
-      {/* <SafeAreaView style={stylesSprints.containerr}>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <View key={item.id} style={stylesSprints.post}>
-              <Text style={stylesSprints.title}>{item.reward}</Text>
-            </View>
-          )}
-        />
-      </SafeAreaView> */}
-
-      <View style={stylesSprints.timeFrame}>
-        <Text
-          style={[
-            stylesSprints.timeFrameTitle,
-            { display: 'flex', justifyContent: 'space-between' },
-          ]}>
-          Старт: <Text style={stylesSprints.timeFrameDate}>03.01.23</Text>
-        </Text>
-        <Text
-          style={[
-            stylesSprints.timeFrameTitle,
-            { display: 'flex', justifyContent: 'space-between' },
-          ]}>
-          Финиш: <Text style={stylesSprints.timeFrameDate}>06.01.23</Text>
-        </Text>
-      </View>
-      <View style={stylesSprints.purposes}>
-        <View style={stylesSprints.purpose}>
-          <View>
-            <Text style={stylesSprints.purposeTitle}>Цель 1 (развитие)</Text>
-            <Text style={stylesSprints.purposeText}>Узнать о том, как продавать</Text>
+    <SafeAreaView>
+      <View style={stylesSprints.container}>
+        <Input style={stylesSprints.newSprint} value={newSprint} onChangeText={setNewSprint} placeholder="Новый спринт" />
+        <Button theme="primary" label="Добавить спринт" onPress={addSprint} />
+        {sprints.map((item) => (
+          <View key={item.id} style={stylesSprints.containerSprint}>
+            <Text>{item.title}</Text>
+            <FontAwesome name="trash" size={20} color="#000" style={stylesSprints.buttonIcon} onPress={() => deleteSprint(item.id)} />
           </View>
-          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
-        </View>
-        <View style={stylesSprints.purpose}>
-          <View>
-            <Text style={stylesSprints.purposeTitle}>Цель 2 (карьера)</Text>
-          </View>
-          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
-        </View>
-        <View style={stylesSprints.purpose}>
-          <View>
-            <Text style={stylesSprints.purposeTitle}>Цель 3 (отношения)</Text>
-          </View>
-          <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
-        </View>
+        ))}
       </View>
-      <View style={stylesSprints.reward}>
-        <Text style={stylesSprints.rewardTitle}>Награда за успех: </Text>
-        <Text style={stylesSprints.rewardText}>Буду есть мороженое целый год, когда захочу</Text>
-      </View>
-      <Button theme="primary" label="Подписать" onPress={() => navigation.navigate('Signature')} />
-    </View>
+    </SafeAreaView>
   );
+
+  // return (
+  //   <View style={stylesSprints.container}>
+  //     {/* <SafeAreaView style={stylesSprints.containerr}>
+  //       <FlatList
+  //         data={data}
+  //         renderItem={({ item }) => (
+  //           <View key={item.id} style={stylesSprints.post}>
+  //             <Text style={stylesSprints.title}>{item.reward}</Text>
+  //           </View>
+  //         )}
+  //       />
+  //     </SafeAreaView> */}
+
+  //     <View style={stylesSprints.timeFrame}>
+  //       <Text
+  //         style={[
+  //           stylesSprints.timeFrameTitle,
+  //           { display: 'flex', justifyContent: 'space-between' },
+  //         ]}>
+  //         Старт: <Text style={stylesSprints.timeFrameDate}>03.01.23</Text>
+  //       </Text>
+  //       <Text
+  //         style={[
+  //           stylesSprints.timeFrameTitle,
+  //           { display: 'flex', justifyContent: 'space-between' },
+  //         ]}>
+  //         Финиш: <Text style={stylesSprints.timeFrameDate}>06.01.23</Text>
+  //       </Text>
+  //     </View>
+  //     <View style={stylesSprints.purposes}>
+  //       <View style={stylesSprints.purpose}>
+  //         <View>
+  //           <Text style={stylesSprints.purposeTitle}>Цель 1 (развитие)</Text>
+  //           <Text style={stylesSprints.purposeText}>Узнать о том, как продавать</Text>
+  //         </View>
+  //         <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
+  //       </View>
+  //       <View style={stylesSprints.purpose}>
+  //         <View>
+  //           <Text style={stylesSprints.purposeTitle}>Цель 2 (карьера)</Text>
+  //         </View>
+  //         <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
+  //       </View>
+  //       <View style={stylesSprints.purpose}>
+  //         <View>
+  //           <Text style={stylesSprints.purposeTitle}>Цель 3 (отношения)</Text>
+  //         </View>
+  //         <FontAwesome name="pencil" size={25} color="#fff" style={stylesSprints.buttonIcon} onPress={() => navigation.navigate('Purpose')} />
+  //       </View>
+  //     </View>
+  //     <View style={stylesSprints.reward}>
+  //       <Text style={stylesSprints.rewardTitle}>Награда за успех: </Text>
+  //       <Text style={stylesSprints.rewardText}>Буду есть мороженое целый год, когда захочу</Text>
+  //     </View>
+  //     <Button theme="primary" label="Подписать" onPress={() => navigation.navigate('Signature')} />
+  //   </View>
+  // );
 };
 
 export default Sprints;
