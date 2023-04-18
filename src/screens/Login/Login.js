@@ -7,18 +7,13 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 
 const Login = ({ navigation }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const user = {
-    email: 'ilyaa@test.com',
-    password: 'password',
-  };
 
   const handleLogin = async () => {
     user_login({
-      email: 'ilyaa@test.com',
-      password: 'password',
+      email,
+      password,
     })
       .then((result) => {
         if (result.status == 200) {
@@ -48,7 +43,7 @@ const Login = ({ navigation }) => {
             justifyContent: 'space-between',
           }}>
           <FontAwesome name="envelope" color="#00716F" size={24} />
-          <Input placeholder="Login" onChangeText={(text) => setUsername(text)} />
+          <Input placeholder="Login" value={email} onChangeText={(text) => setEmail(text)} />
         </View>
         <View
           style={{
@@ -57,7 +52,7 @@ const Login = ({ navigation }) => {
             justifyContent: 'space-between',
           }}>
           <FontAwesome name="lock" color="#00716F" size={24} />
-          <Input placeholder="Password" onChangeText={(text) => setPassword(text)} />
+          <Input placeholder="Password" value={password} onChangeText={(text) => setPassword(text)} />
         </View>
       </View>
       <View>
