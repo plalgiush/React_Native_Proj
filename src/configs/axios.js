@@ -1,12 +1,15 @@
-import Axios from 'axios'
+import Axios from 'axios';
+import getEnvVars from '../../environment';
 
-const axios = Axios.create({
-    baseURL: 'https://stage.day.shellpea.com/api/v1/',
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-    },
-    responseType:'json',
-    withCredentials: true,
-})
+const { apiUrl } = getEnvVars();
 
-export default axios
+export const axios = Axios.create({
+  baseURL: { apiUrl },
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+  },
+  responseType: 'json',
+  withCredentials: true,
+});
+
+export const baseURL = axios.defaults.baseURL.apiUrl;

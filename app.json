@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "reactNative",
-    "slug": "first-project",
+    "slug": "day",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -39,11 +39,6 @@
     },
     "updates": {
       "url": "https://u.expo.dev/7ed78583-c817-4bf8-bad7-9235f61d31d8"
-    },
-    "paths": {
-      "@config/*": [
-        "./src/configs/axios.js"
-      ]
     }
   }
 }

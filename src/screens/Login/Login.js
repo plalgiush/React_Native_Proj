@@ -30,6 +30,8 @@ const Login = ({ navigation }) => {
     <View
       style={{
         alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
       }}>
       <View
         style={{
@@ -58,7 +60,7 @@ const Login = ({ navigation }) => {
       <View>
         <Button theme="primary" label="Войти" onPress={() => handleLogin()} />
       </View>
-      <Button label="Новый пользователь" onPress={() => navigate('Register')} />
+      <Button label="Новый пользователь" onPress={() => navigation.navigate('Register')} />
     </View>
   );
 };
