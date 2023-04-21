@@ -54,7 +54,7 @@ const Login = ({ navigation }) => {
             justifyContent: 'space-between',
           }}>
           <FontAwesome name="lock" color="#00716F" size={24} />
-          <Input placeholder="Password" value={password} onChangeText={(text) => setPassword(text)} />
+          <Input placeholder="Password" value={password} onChangeText={(text) => setPassword(text)} secureTextEntry />
         </View>
       </View>
       <View>

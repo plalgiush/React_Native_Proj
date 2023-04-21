@@ -18,7 +18,7 @@ const Register = ({ navigation }) => {
       password_confirmation,
     })
       .then((result) => {
-        if (result.status == 200) {
+        if (result.status == 201) {
           navigation.replace('Login');
         }
       })
