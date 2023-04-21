@@ -20,7 +20,7 @@ export const user_register = async (data) => {
     const result = await axios(`${baseURL}register`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
       },
       data: data
     })

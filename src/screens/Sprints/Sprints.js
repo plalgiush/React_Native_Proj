@@ -1,48 +1,15 @@
-import { View, Text, TextInput, SafeAreaView } from 'react-native';
-import axios from '../../../src/configs/axios.js';
+import { View, Text, SafeAreaView } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input.js';
+import Input from '../../components/Field/Input.js';
 import { stylesSprints } from './styles';
 import { useEffect, useState } from 'react';
+import CustomField from '../../components/Field/CustomField';
+import { Field, Formik } from 'formik';
 
 const Sprints = ({ navigation }) => {
-  // const [data, setData] = useState([]);
-  // const baseUrl = 'https://stage.day.shellpea.com/api/v1/register';
-
   const [sprints, setSprints] = useState([]);
   const [newSprint, setNewSprint] = useState('');
-
-  // useEffect(() => {
-  //   // declare the async data fetching function
-  //   const fetchData = async () => {
-  //     const url = `${baseUrl}`;
-
-  //     try {
-  //       const response = await axios.get(url);
-  //       console.log(response);
-  //       if (response.status === 200) {
-  //         console.log(response.data);
-  //         setData(response.data);
-  //         return;
-  //       } else {
-  //         throw new Error('Failed to fetch users');
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       if (axios.isCancel(error)) {
-  //         console.log('Data fetching cancelled');
-  //       } else {
-  //         setIsLoading(false);
-  //       }
-  //     }
-  //   };
-
-  //   // call the function
-  //   fetchData()
-  //     // make sure to catch any error
-  //     .catch(console.error);
-  // }, []);
 
   function addSprint() {
     setSprints([...sprints, { id: Date.now(), title: newSprint, date: Date.now() }]);
@@ -57,13 +24,31 @@ const Sprints = ({ navigation }) => {
     <SafeAreaView>
       <View style={stylesSprints.container}>
         <Input style={stylesSprints.newSprint} value={newSprint} onChangeText={setNewSprint} placeholder="Новый спринт" />
-        <Button theme="primary" label="Добавить спринт" onPress={addSprint} />
+        {/* <Formik
+          initialValues={{
+            title: '',
+          }}
+          onSubmit={(values) => console.log(values)}>
+          {({ handleSubmit, isValid, values }) => (
+            <>
+              <Field component={CustomField} name="sprint"  placeholder="Новый спринт" />
+              <Button theme="primary" label="Добавить спринт" onPress={addSprint} />
+            </>
+          )}
+        </Formik> */}
         {sprints.map((item) => (
           <View key={item.id} style={stylesSprints.containerSprint}>
             <Text>{item.title}</Text>
-            <FontAwesome name="trash" size={20} color="#000" style={stylesSprints.buttonIcon} onPress={() => deleteSprint(item.id)} />
+            <FontAwesome
+              name="trash"
+              size={20}
+              color="#000"
+              style={stylesSprints.buttonIcon}
+              onPress={() => deleteSprint(item.id)}
+            />
           </View>
         ))}
+        <Button theme="primary" label="Добавить спринт" onPress={addSprint} />
       </View>
     </SafeAreaView>
   );
