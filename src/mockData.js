@@ -1,7 +1,7 @@
 import HomeScreen from "./screens/HomeScreen/HomeScreen"
 import Login from "./screens/Login/Login"
 import Purpose from "./screens/Purpose/Purpose"
-import Register from "./screens/Register/Register"
+import SignUp from "./screens/SignUp/SignUp"
 import Signature from "./screens/Signature/Signature"
 import Splash from "./screens/Splash/Splash"
 import Sprints from "./screens/Sprints/Sprints"
@@ -19,8 +19,8 @@ export const pages = [
 	},
 	{
 		id: 3,
-		name: 'Register',
-		component: Register
+		name: 'SignUp',
+		component: SignUp
 	},
 	{
 		id: 4,

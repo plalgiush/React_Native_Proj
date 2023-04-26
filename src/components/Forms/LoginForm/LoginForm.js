@@ -80,7 +80,7 @@ const LoginForm = ({ navigation }) => {
             <View>
               <Button theme="primary" label="Войти" onPress={handleSubmit} disabled={!isValid} />
             </View>
-            <Button label="Новый пользователь" onPress={() => navigation.navigate('Register')} />
+            <Button label="Новый пользователь" onPress={() => navigation.navigate('SignUp')} />
           </View>
         )}
       </Formik>

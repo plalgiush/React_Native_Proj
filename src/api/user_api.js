@@ -7,7 +7,7 @@ export const user_login = async (data) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: data
+      data: JSON.stringify(data)
     })
     return result
   } catch (error) {
@@ -22,7 +22,7 @@ export const user_register = async (data) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: data
+      data: JSON.stringify(data)
     })
     return result
   } catch (error) {
