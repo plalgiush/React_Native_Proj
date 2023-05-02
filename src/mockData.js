@@ -10,36 +10,43 @@ export const pages = [
 	{
 		id: 1,
 		name: 'Splash',
-		component: Splash
+		component: Splash,
+		options: {headerShown: false}
 	},
 	{
 		id: 2,
 		name: 'Login',
-		component: Login
+		component: Login,
+		options: {headerShown: false}
 	},
 	{
 		id: 3,
 		name: 'SignUp',
-		component: SignUp
+		component: SignUp,
+		options: {headerShown: false}
 	},
 	{
 		id: 4,
 		name: 'HomeScreen',
-		component: HomeScreen
+		component: HomeScreen,
+		options: {headerShown: false}
 	},
 	{
 		id: 5,
 		name: 'Signature',
-		component: Signature
+		component: Signature,
+		options: {headerShown: false}
 	},
 	{
 		id: 6,
 		name: 'Sprints',
-		component: Sprints
+		component: Sprints,
+		options: {headerShown: false}
 	},
 	{
 		id: 7,
 		name: 'Purpose',
-		component: Purpose
+		component: Purpose,
+		options: {headerShown: false}
 	},
 ]

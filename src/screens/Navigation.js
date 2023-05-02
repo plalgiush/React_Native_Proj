@@ -5,7 +5,7 @@ import Signature from './Signature/Signature';
 import Sprints from './Sprints/Sprints';
 import Purpose from './Purpose/Purpose';
 import Login from './Login/Login';
-import Register from './Register/Register';
+import SignUp from './SignUp/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ export const Navigation = () => {
         <Stack.Screen name="Sprints" components={Sprints} />
         <Stack.Screen name="Purpose" components={Purpose} />
         <Stack.Screen name="Login" components={Login} />
-        <Stack.Screen name="Register" components={Register} />
+        <Stack.Screen name="SignUp" components={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );

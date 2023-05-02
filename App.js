@@ -13,8 +13,8 @@ export default function App() {
       <NavigationContainer theme={MyTheme}>
         <Navigator>
           {pages.map(
-            ({ name, component, id }) =>
-              component && <Screen key={id} name={name} component={component} />
+            ({ name, component, id, options }) =>
+              component && <Screen key={id} name={name} component={component} options={options} />
           )}
         </Navigator>
         <StatusBar style="auto" />
