@@ -1,11 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export const stylesSprints = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   newSprint: {
     backgroundColor: '#fff',
     borderRadius: 8,

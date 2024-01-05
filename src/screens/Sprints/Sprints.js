@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Field/Input.js';
@@ -6,10 +6,12 @@ import { stylesSprints } from './styles';
 import { useEffect, useState } from 'react';
 import CustomField from '../../components/Field/CustomField';
 import { Field, Formik } from 'formik';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Sprints = ({ navigation }) => {
   const [sprints, setSprints] = useState([]);
   const [newSprint, setNewSprint] = useState('');
+  const insets = useSafeAreaInsets();
 
   function addSprint() {
     setSprints([...sprints, { id: Date.now(), title: newSprint, date: Date.now() }]);
@@ -21,8 +23,8 @@ const Sprints = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView>
-      <View style={stylesSprints.container}>
+    <SafeAreaProvider>
+      <View style={{ flex: 1, alignItems: 'center', paddingTop: insets.top, paddingBottom: insets.bottom }}>
         <Input style={stylesSprints.newSprint} value={newSprint} onChangeText={setNewSprint} placeholder="Новый спринт" />
         {/* <Formik
           initialValues={{
@@ -50,7 +52,7 @@ const Sprints = ({ navigation }) => {
         ))}
         <Button theme="primary" label="Добавить спринт" onPress={addSprint} />
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 
   // return (
