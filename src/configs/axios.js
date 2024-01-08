@@ -1,11 +1,9 @@
 import Axios from 'axios';
-// import getEnvVars from '../../environment';
 
-// const { apiUrl } = getEnvVars();
 const apiUrl = 'http://localhost:8000/api/v1/';
 
 export const axios = Axios.create({
-  baseURL: { apiUrl },
+  baseURL: {apiUrl},
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
